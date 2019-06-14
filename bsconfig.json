@@ -1,0 +1,33 @@
+{
+  "name": "reasonmtl-dojo-3",
+  "reason": {
+    "react-jsx": 3
+  },
+  "sources": {
+    "dir": "src",
+    "subdirs": true
+  },
+  "package-specs": [
+    {
+      "module": "es6",
+      "in-source": true
+    }
+  ],
+  "suffix": ".bs.js",
+  "namespace": true,
+  "bs-dependencies": [
+    "reason-react",
+    "reason-apollo",
+    "bs-css"
+  ],
+  "ppx-flags": [
+    "graphql_ppx/ppx"
+  ],
+  "refmt": 3,
+  "warnings": {
+    "error": "+5"
+  },
+  "bsc-flags": [
+    "-bs-super-errors"
+  ]
+}
