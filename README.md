@@ -1,4 +1,58 @@
-# reasonmtl-dojo-3
+# reasonmtl-dojo-travel
+
+see: <https://github.com/ReasonMTL/reasonmtl-dojo-3>
+
+## TIL
+
+Refreshed on Belt.Array.keepMap to get a workable value when graphql is returning and optional array of json.
+
+Also used `get_in_ppx` to get a value back for an optional field on each item.
+
+### Router
+see: <https://reasonml.github.io/reason-react/docs/en/router#match-a-route>
+
+ReasonReactRouter.useUrl(~serverUrl): get access to the current url as a hook in your React component. No need to setup watch, unwatch, and dangerouslyGetInitialUrl yourself.
+
+`ReasonReactRouter.useUrl();` lets us use the route url to pattern match against. What is the differnce between `url` and `hash` on ReasonReactRouter?
+
+This is `type url`:
+Basically, `path` is the `url` and `hash` is any value with a `#` before it which gets stripped out. `search` are any query params that are on the url string which would come after the `?` symbol (which gets stripped out).
+
+```reason
+type url = {
+  /* path takes window.location.pathname, like "/book/title/edit" and turns it into `["book", "title", "edit"]` */
+  path: list(string),
+  /* the url's hash, if any. The # symbol is stripped out for you */
+  hash: string,
+  /* the url's query params, if any. The ? symbol is stripped out for you */
+  search: string
+};
+
+```
+
+Example from docs:
+So the url <www.hello.com/book/10/edit?name=Jane#author> is given back as:
+
+```reason
+{
+  path: ["book", "10", "edit"],
+  hash: "author",
+  search: "name=Jane"
+}
+```
+
+```reason
+[@react.component]
+let make = () => {
+  let url = ReasonReactRouter.useUrl();
+
+  switch (url.path) {
+  | [] => <TravelApp />
+  | ["about"] => <About />
+  | _ => <Error code=404 />
+  };
+};
+```
 
 ## Installing / Getting started
 
