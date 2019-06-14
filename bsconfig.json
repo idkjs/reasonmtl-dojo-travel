@@ -21,6 +21,7 @@
     "bs-css"
   ],
   "ppx-flags": [
+    "get_in_ppx/ppx",
     "graphql_ppx/ppx"
   ],
   "refmt": 3,

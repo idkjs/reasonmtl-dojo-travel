@@ -3,7 +3,7 @@ let make = () => {
   let url = ReasonReactRouter.useUrl();
 
   switch (url.path) {
-  | [] => <App />
+  | [] => <TravelApp />
   | ["about"] => <About />
   | _ => <Error code=404 />
   };

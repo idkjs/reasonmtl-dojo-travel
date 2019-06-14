@@ -3,17 +3,19 @@
   "version": "0.1.0",
   "scripts": {
     "start": "concurrently -c --kill-others 'yarn:start:bsb' 'yarn:start:parcel'",
+    "watch": "bsb -make-world -w",
     "start:bsb": "bsb -make-world -w",
     "start:parcel": "parcel public/index.html --open",
     "clean": "bsb -clean-world && rm -rf .cache dist",
     "build": "yarn clean && bsb -make-world && parcel build public/index.html",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "schema": "yarn send-introspection-query https://reasonable-pokedex-git-cors.davidcorticchiato.now.sh/graphql"
+    "schema": "yarn send-introspection-query https://care-to-travel-bf8357556e.herokuapp.com/CareToTravel/dev"
   },
   "author": "Thibaut Mattio",
   "license": "MIT",
   "dependencies": {
     "bs-css": "^8.0.4",
+    "get_in_ppx": "1.0.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "reason-apollo": "^0.16.3",
